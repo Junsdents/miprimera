@@ -2,7 +2,12 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors } from './colors';
 
-const InicioScreen = () => {
+const InicioScreen = ({
+  onPressCepillarAhora,
+  onPressMisiones,
+  onPressCalendario,
+  onPressRecompensas,
+}) => {
   // Estado de ejemplo para mostrar el progreso diario de cepillado.
   const progresoHoy = 70;
 
@@ -15,7 +20,7 @@ const InicioScreen = () => {
       </View>
 
       {/* Botón principal grande para iniciar el cepillado */}
-      <TouchableOpacity style={styles.brushButton} activeOpacity={0.9}>
+      <TouchableOpacity style={styles.brushButton} activeOpacity={0.9} onPress={onPressCepillarAhora}>
         <Text style={styles.brushButtonText}>Cepillar ahora</Text>
       </TouchableOpacity>
 
@@ -30,15 +35,27 @@ const InicioScreen = () => {
 
       {/* Navegación rápida a secciones importantes de la app */}
       <View style={styles.quickActions}>
-        <TouchableOpacity style={[styles.actionButton, styles.missionButton]} activeOpacity={0.9}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.missionButton]}
+          activeOpacity={0.9}
+          onPress={onPressMisiones}
+        >
           <Text style={styles.actionText}>Misiones</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.actionButton, styles.calendarButton]} activeOpacity={0.9}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.calendarButton]}
+          activeOpacity={0.9}
+          onPress={onPressCalendario}
+        >
           <Text style={styles.actionText}>Calendario</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.actionButton, styles.rewardButton]} activeOpacity={0.9}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.rewardButton]}
+          activeOpacity={0.9}
+          onPress={onPressRecompensas}
+        >
           <Text style={styles.actionText}>Recompensas</Text>
         </TouchableOpacity>
       </View>
